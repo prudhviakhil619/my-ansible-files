@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: httpd installation
+    package: name=httpd state=installed 
+  - name: httpd start
+    service: name=httpd state=restarted
+ 
