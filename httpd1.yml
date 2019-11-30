@@ -1,0 +1,15 @@
+---
+- hosts: all
+  become: yes
+  vars:
+    packname: httpd
+    username: Akhil
+    doc_root: /var/www/html/
+  tasks:
+  - name: installing httpd
+    package: name={{packname}} state=latest
+  - name: starting httpd
+    package: name={{packname}} state=installed
+  - name: copy file
+    template: src=/etc/ansible/templates/index.html dest={{doc_root}}/index.html mode=0644
+     

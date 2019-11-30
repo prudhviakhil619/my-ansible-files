@@ -1,0 +1,11 @@
+
+- hosts: all
+  become: yes
+  vars: packname=tomcat7
+  tasks:
+  - name: tomcat installation
+    package: name="{{packname}}" state=installed
+  - name: starting tomcat7
+    service: name="{{packname}}" state=started
+
+

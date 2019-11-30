@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - shell: usr/bin/whoami
+    register: username
+  - file: path=/tmp/info.txt owner={{username}}
+
+ 

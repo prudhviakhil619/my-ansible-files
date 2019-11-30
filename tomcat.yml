@@ -1,0 +1,17 @@
+---
+- hosts: all
+  become: yes
+  vars:
+    packname: tomcat7
+    packname1: httpd
+  tasks:
+  - name: installing httpd
+    package: name={{packname1}} state=latest
+  - name: starting httpd
+    service: name={{packname1}} state=restarted
+  - name: installing tomcat7
+    package: name={{packname}} state=latest
+  - name: starting tomcat7 state=latest
+    service: name={{packname}} state=started
+
+ 
