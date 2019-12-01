@@ -1,0 +1,13 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: creating the student data base
+      mysql_db: 
+        name: studentapp 
+        state: present
+    - name: importing the data base
+      mysql_db:
+        state: import
+        name: all
+        target: /tmp/student.sql
