@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: installing mysql
+    package: name= {{item}} state=latest
+    with_items:
+    - mysql-server
+    - mysql-client
+    - python-mysqldb
